@@ -58,6 +58,7 @@ return [
                 'image/pjpeg',
                 'image/png',
                 'image/gif',
+                'image/webp',
                 'application/pdf',
                 'text/plain',
             ],
@@ -73,6 +74,7 @@ return [
                 'image/jpeg',
                 'image/pjpeg',
                 'image/png',
+                'image/webp',
                 'image/gif',
             ],
         ],
@@ -135,6 +137,7 @@ return [
         'image/jpeg',
         'image/pjpeg',
         'image/png',
+        'image/webp',
     ],
 
     'thumb_img_width'          => 200, // px
@@ -158,6 +161,7 @@ return [
         'jpg'  => 'JPEG Image',
         'jpeg' => 'JPEG Image',
         'png'  => 'PNG Image',
+        'webp' => 'WEBP Image',
         'ppt'  => 'Microsoft PowerPoint',
         'pptx' => 'Microsoft PowerPoint',
     ],

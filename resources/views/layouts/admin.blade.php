@@ -129,6 +129,54 @@
                       </li>
                     {{-- end article --}}
 
+                    {{-- start page --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            О нас
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('page.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('article.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li> --}}
+                        </ul>
+                     </li>
+                    {{-- end page --}}
+
+                    {{-- start article --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Праздничные наборы
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('holidayset.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('holidayset.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end article --}}
+
                 </ul>
             </nav>
         </div>

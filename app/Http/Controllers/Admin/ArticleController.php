@@ -51,7 +51,7 @@ class ArticleController extends Controller
         if (Article::create($data)) {
             return redirect()->route('article.index')->with('message', "Article created seccessfully");
         }
-        return redirect()->route('article.index')->with('message', "Article created seccessfully");
+        return redirect()->route('article.index')->with('message', "unable to created Article");
     }
 
     /**
@@ -113,6 +113,19 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Article::find($id)) {
+            return redirect()->route('article.index')->with('message', "Article not found");
+        }
+
+        $article = Article::find($id);
+
+        if (File::exists(public_path() . $article->image)) {
+            File::delete(public_path() . $article->image);
+        }
+
+        if ($article->delete()) {
+            return redirect()->route('article.index')->with('message', "Article deleted successfully");
+        }
+        return redirect()->route('article.index')->with('message', "unable to delete article");
     }
 }
