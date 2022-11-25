@@ -6,26 +6,27 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 
-class Holidayset extends Model
+class Recipenew extends Model
 {
     use HasFactory;
 
-    protected $table = 'holidaysets';
+    protected $table = 'recipenews';
 
     protected $fillable = [
-        'image',
+        'recipe_id', 'image',
         'title_ru', 'title_uz', 'title_en',
         'slug_ru', 'slug_uz', 'slug_en',
-        'package_ru', 'package_uz', 'package_en',
-        'weight',
-        'compound_ru', 'compound_uz', 'compound_en',
-        'best_before_date_ru', 'best_before_date_uz', 'best_before_date_en',
-        'price',
         'description_ru', 'description_uz', 'description_en',
+        'frame',
         'meta_title_ru', 'meta_description_ru',
         'meta_title_uz', 'meta_description_uz',
         'meta_title_en', 'meta_description_en',
     ];
+
+    public function recipe()
+    {
+        return $this->belongsTo('App\Models\Recipe', 'recipe_id');
+    }
 
     public static function uploadImage($request): ?string
     {
@@ -35,39 +36,38 @@ class Holidayset extends Model
 
             $request->file('image')
                 ->move(
-                    public_path() . '/upload/holidayset/' . date('d-m-Y'),
+                    public_path() . '/upload/recipenew/' . date('d-m-Y'),
                     $request->file('image')->getClientOriginalName()
                 );
-            return '/upload/holidayset/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
+            return '/upload/recipenew/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
         }
-
         return null;
     }
 
-    public static function updateImage($request, $holidayset): string
+    public static function updateImage($request, $recipenew): string
     {
         if ($request->hasFile('image')) {
-            if (File::exists(public_path() . $holidayset->image)) {
-                File::delete(public_path() . $holidayset->image);
+            if (File::exists(public_path() . $recipenew->image)) {
+                File::delete(public_path() . $recipenew->image);
             }
 
             self::checkDirectory();
 
             $request->file('image')
                 ->move(
-                    public_path() . '/upload/holidayset/' . date('d-m-Y'),
+                    public_path() . '/upload/recipenew/' . date('d-m-Y'),
                     $request->file('image')->getClientOriginalName()
                 );
-            return '/upload/holidayset/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
+            return '/upload/recipenew/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
         }
 
-        return $holidayset->image;
+        return $recipenew->image;
     }
 
     private static function checkDirectory(): bool
     {
-        if (!File::exists(public_path() . '/upload/holidayset/' . date('d-m-Y'))) {
-            File::makeDirectory(public_path() . '/upload/holidayset/' . date('d-m-Y'), $mode = 0777, true, true);
+        if (!File::exists(public_path() . '/upload/recipenew/' . date('d-m-Y'))) {
+            File::makeDirectory(public_path() . '/upload/recipenew/' . date('d-m-Y'), $mode = 0777, true, true);
         }
 
         return true;

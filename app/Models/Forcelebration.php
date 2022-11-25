@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 
-class Holidayset extends Model
+class Forcelebration extends Model
 {
     use HasFactory;
 
-    protected $table = 'holidaysets';
+    protected $table = 'forcelebrations';
 
     protected $fillable = [
         'image',
@@ -27,6 +27,7 @@ class Holidayset extends Model
         'meta_title_en', 'meta_description_en',
     ];
 
+
     public static function uploadImage($request): ?string
     {
         if ($request->hasFile('image')) {
@@ -35,30 +36,30 @@ class Holidayset extends Model
 
             $request->file('image')
                 ->move(
-                    public_path() . '/upload/holidayset/' . date('d-m-Y'),
+                    public_path() . '/upload/forcelebration/' . date('d-m-Y'),
                     $request->file('image')->getClientOriginalName()
                 );
-            return '/upload/holidayset/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
+            return '/upload/forcelebration/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
         }
 
         return null;
     }
 
-    public static function updateImage($request, $holidayset): string
+    public static function updateImage($request, $forcelebration): string
     {
         if ($request->hasFile('image')) {
-            if (File::exists(public_path() . $holidayset->image)) {
-                File::delete(public_path() . $holidayset->image);
+            if (File::exists(public_path() . $forcelebration->image)) {
+                File::delete(public_path() . $forcelebration->image);
             }
 
             self::checkDirectory();
 
             $request->file('image')
                 ->move(
-                    public_path() . '/upload/holidayset/' . date('d-m-Y'),
+                    public_path() . '/upload/forcelebration/' . date('d-m-Y'),
                     $request->file('image')->getClientOriginalName()
                 );
-            return '/upload/holidayset/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
+            return '/upload/forcelebration/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
         }
 
         return $holidayset->image;
@@ -66,8 +67,8 @@ class Holidayset extends Model
 
     private static function checkDirectory(): bool
     {
-        if (!File::exists(public_path() . '/upload/holidayset/' . date('d-m-Y'))) {
-            File::makeDirectory(public_path() . '/upload/holidayset/' . date('d-m-Y'), $mode = 0777, true, true);
+        if (!File::exists(public_path() . '/upload/forcelebration/' . date('d-m-Y'))) {
+            File::makeDirectory(public_path() . '/upload/forcelebration/' . date('d-m-Y'), $mode = 0777, true, true);
         }
 
         return true;

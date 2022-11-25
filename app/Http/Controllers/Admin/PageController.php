@@ -37,15 +37,15 @@ class PageController extends Controller
      * @param  App\Http\Requests\Admin\CreatePage  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ReqCreatePageuest $request)
+    public function store(CreatePage $request)
     {
         // $data = $request->all();
-        // $data['image'] = Companycarrer::uploadImage($data);
+        // $data['image'] = Page::uploadImage($data);
 
-        // if(Companycarrer::create($data)) {
-        //      return redirect()->route('companycarrer.index')->with('message', "Carrer created successfully");
+        // if(Page::create($data)) {
+        //      return redirect()->route('page.index')->with('message', "page created successfully");
         // }
-        // return redirect()->route('companycarrer.index')->with('message', "Unable to create Career");
+        // return redirect()->route('page.index')->with('message', "Unable to create page");
     }
 
     /**

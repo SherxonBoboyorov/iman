@@ -8,21 +8,22 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Добавить Праздничные наборы</h4>
+                    <h4 class="page-title">Редактировать Новинки</h4>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
 
         <!-- end page title end breadcrumb -->
-        <form action="{{ route('holidayset.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('holidayset.update', $holidayset->id) }}" enctype="multipart/form-data" method="POST">
             @csrf
+            @method('PUT')
             <div class="card">
                 <div class="card-body">
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-4">
                             <label for="title_uz">Заголовок [Uzbek]</label>
-                            <input type="text" id="title_uz" class="form-control" name="title_uz">
+                            <input type="text" id="title_uz" value="{{ $holidayset->title_uz }}" class="form-control" name="title_uz">
                             @if($errors->has('title_uz'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -34,7 +35,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="title_ru">Заголовок [Russian]</label>
-                            <input type="text" id="title_ru" class="form-control" name="title_ru">
+                            <input type="text" id="title_ru" value="{{ $holidayset->title_ru }}" class="form-control" name="title_ru">
                             @if($errors->has('title_ru'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -46,7 +47,7 @@
                         </div>
                         <div class="col-md-4">
                             <label for="title_en">Заголовок [English]</label>
-                            <input type="text" id="title_en" class="form-control" name="title_en">
+                            <input type="text" id="title_en" value="{{ $holidayset->title_en }}" class="form-control" name="title_en">
                             @if($errors->has('title_en'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -63,7 +64,7 @@
                     <div class="row" style="margin-top: 15px">
                      <div class="col-md-6">
                         <label for="package_uz">Упаковка: [Uzbek]</label>
-                        <input type="text" id="package_uz" class="form-control" name="package_uz">
+                        <input type="text" id="package_uz" value="{{ $holidayset->package_uz }}" class="form-control" name="package_uz">
                         @if($errors->has('package_uz'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -77,7 +78,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-6">
                                 <label for="package_ru">Упаковка: [Russian]</label>
-                                <input type="text" id="package_ru" class="form-control" name="package_ru">
+                                <input type="text" id="package_ru" value="{{ $holidayset->package_ru}}" class="form-control" name="package_ru">
                                 @if($errors->has('package_ru'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -91,7 +92,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-6">
                                 <label for="package_en">Упаковка: [English]</label>
-                                <input type="text" id="package_en" class="form-control" name="package_en">
+                                <input type="text" id="package_en" value="{{ $holidayset->package_en }}" class="form-control" name="package_en">
                                 @if($errors->has('package_en'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -107,7 +108,7 @@
                           <div class="row" style="margin-top: 15px">
                             <div class="col-md-3">
                                 <label for="weight"> Вес:</label>
-                                <input type="number" id="weight" class="form-control" name="weight">
+                                <input type="number" id="weight" value="{{ $holidayset->weight }}" class="form-control" name="weight">
                                 @if($errors->has('weight'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -123,7 +124,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-6">
                             <label for="compound_uz">Состав: [Uzbek]</label>
-                            <input type="text" id="compound_uz" class="form-control" name="compound_uz">
+                            <input type="text" id="compound_uz" value="{{ $holidayset->compound_uz }}" class="form-control" name="compound_uz">
                             @if($errors->has('compound_uz'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -137,7 +138,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-6">
                                 <label for="compound_ru">Состав: [Russian]</label>
-                                <input type="text" id="compound_ru" class="form-control" name="compound_ru">
+                                <input type="text" id="compound_ru" value="{{ $holidayset->compound_ru }}" class="form-control" name="compound_ru">
                                 @if($errors->has('compound_ru'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -151,7 +152,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-6">
                                 <label for="compound_en">Состав: [English]</label>
-                                <input type="text" id="compound_en" class="form-control" name="compound_en">
+                                <input type="text" id="compound_en" value="{{ $holidayset->compound_en }}" class="form-control" name="compound_en">
                                 @if($errors->has('compound_en'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -167,7 +168,7 @@
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-2">
                             <label for="best_before_date_uz">Срок годности: [Uzbek]</label>
-                            <input type="text" id="best_before_date_uz" class="form-control" name="best_before_date_uz">
+                            <input type="text" id="best_before_date_uz" value="{{ $holidayset->best_before_date_uz }}" class="form-control" name="best_before_date_uz">
                             @if($errors->has('best_before_date_uz'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -181,7 +182,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-2">
                             <label for="best_before_date_ru">Срок годности: [Russian]</label>
-                            <input type="text" id="best_before_date_ru" class="form-control" name="best_before_date_ru">
+                            <input type="text" id="best_before_date_ru" value="{{ $holidayset->best_before_date_ru }}" class="form-control" name="best_before_date_ru">
                             @if($errors->has('best_before_date_ru'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -195,7 +196,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-2">
                             <label for="best_before_date_en">Срок годности: [English]</label>
-                            <input type="text" id="best_before_date_en" class="form-control" name="best_before_date_en">
+                            <input type="text" id="best_before_date_en" value="{{ $holidayset->best_before_date_en }}" class="form-control" name="best_before_date_en">
                             @if($errors->has('best_before_date_en'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -211,7 +212,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-3">
                             <label for="price">Цена</label>
-                            <input type="number" id="price" class="form-control" name="price">
+                            <input type="number" id="price" value="{{ $holidayset->price }}" class="form-control" name="price">
                             @if($errors->has('price'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -227,7 +228,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
                             <label for="description_uz">Описание [Uzbek]</label>
-                            <textarea name="description_uz" class="my-editor" id="description_uz" cols="30" rows="10"></textarea>
+                            <textarea name="description_uz" class="my-editor" id="description_uz" cols="30" rows="10">{{ $holidayset->description_uz }}</textarea>
                             @if($errors->has('description_uz'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -241,7 +242,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
                             <label for="description_ru">Описание [Russian]</label>
-                            <textarea name="description_ru" class="my-editor" id="description_ru" cols="30" rows="10"></textarea>
+                            <textarea name="description_ru" class="my-editor" id="description_ru" cols="30" rows="10">{{ $holidayset->description_ru }}</textarea>
                             @if($errors->has('description_ru'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -256,7 +257,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
                             <label for="description_en">Описание [English]</label>
-                            <textarea name="description_en" class="my-editor" id="description_en" cols="30" rows="10"></textarea>
+                            <textarea name="description_en" class="my-editor" id="description_en" cols="30" rows="10">{{ $holidayset->description_en }}</textarea>
                             @if($errors->has('description_en'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -271,7 +272,7 @@
                       <div class="row" style="margin-top: 15px">
                           <div class="col-md-6">
                               <label for="meta_title_ru">Meta Title RU</label>
-                              <textarea name="meta_title_ru" class="form-control" id="meta_title_ru" cols="30" rows="5"></textarea>
+                              <textarea name="meta_title_ru" class="form-control" id="meta_title_ru" cols="30" rows="5">{{ $holidayset->meta_title_ru }}</textarea>
                               @if($errors->has('meta_title_ru'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -283,7 +284,7 @@
                           </div>
                           <div class="col-md-6">
                               <label for="meta_description_ru">Meta Description RU</label>
-                              <textarea name="meta_description_ru" class="form-control" id="meta_description_ru" cols="30" rows="5"></textarea>
+                              <textarea name="meta_description_ru" class="form-control" id="meta_description_ru" cols="30" rows="5">{{ $holidayset->meta_description_ru }}</textarea>
                               @if($errors->has('meta_description_ru'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -298,7 +299,7 @@
                       <div class="row" style="margin-top: 15px">
                           <div class="col-md-6">
                               <label for="meta_title_uz">Meta Title UZ</label>
-                              <textarea name="meta_title_uz" class="form-control" id="meta_title_uz" cols="30" rows="5"></textarea>
+                              <textarea name="meta_title_uz" class="form-control" id="meta_title_uz" cols="30" rows="5">{{ $holidayset->meta_title_uz }}</textarea>
                               @if($errors->has('meta_title_uz'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -310,7 +311,7 @@
                           </div>
                           <div class="col-md-6">
                               <label for="meta_description_uz">Meta Description UZ</label>
-                              <textarea name="meta_description_uz" class="form-control" id="meta_description_uz" cols="30" rows="5"></textarea>
+                              <textarea name="meta_description_uz" class="form-control" id="meta_description_uz" cols="30" rows="5">{{ $holidayset->meta_description_uz }}</textarea>
                               @if($errors->has('meta_description_uz'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -325,7 +326,7 @@
                       <div class="row" style="margin-top: 15px">
                           <div class="col-md-6">
                               <label for="meta_title_en">Meta Title EN</label>
-                              <textarea name="meta_title_en" class="form-control" id="meta_title_en" cols="30" rows="5"></textarea>
+                              <textarea name="meta_title_en" class="form-control" id="meta_title_en" cols="30" rows="5">{{ $holidayset->meta_title_en }}</textarea>
                               @if($errors->has('meta_title_en'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -337,7 +338,7 @@
                           </div>
                           <div class="col-md-6">
                               <label for="meta_description_en">Meta Description EN</label>
-                              <textarea name="meta_description_en" class="form-control" id="meta_description_en" cols="30" rows="5"></textarea>
+                              <textarea name="meta_description_en" class="form-control" id="meta_description_en" cols="30" rows="5">{{ $holidayset->meta_description_en }}</textarea>
                               @if($errors->has('meta_description_en'))
                               <div class="alert alert-success alert-dismissible fade show" role="alert">
                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -363,11 +364,14 @@
                                 </div>
                             @endif
                         </div>
+                        <div class="col-md-6">
+                            <img src="{{ asset($holidayset->image) }}" width="150" height="150" alt="">
+                        </div>
                     </div><br>
 
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+                            <button type="submit" class="btn btn-success btn-block">Обновить</button>
                         </div>
                     </div>
                 </div>

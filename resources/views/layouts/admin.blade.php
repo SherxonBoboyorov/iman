@@ -33,7 +33,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-                    {{-- start slider --}}
+                    {{-- start--}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
@@ -55,14 +55,14 @@
                         </li>
                         </ul>
                      </li>
-                    {{-- end slider --}}
+                    {{-- end --}}
 
-                    {{-- start category --}}
+                    {{-- start--}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
                         <p>
-                            Категории
+                            Каталог
                             <i class="right fas fa-angle-left"></i>
                         </p>
                         </a>
@@ -79,14 +79,14 @@
                         </li>
                         </ul>
                      </li>
-                    {{-- end category --}}
+                    {{-- end --}}
 
-                    {{-- start product --}}
+                    {{-- start --}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
                         <p>
-                            Продукты
+                            Каталог-Продукты
                             <i class="right fas fa-angle-left"></i>
                         </p>
                         </a>
@@ -103,9 +103,9 @@
                         </li>
                         </ul>
                      </li>
-                    {{-- end product --}}
+                    {{-- end --}}
 
-                    {{-- start article --}}
+                    {{-- start --}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
@@ -127,9 +127,9 @@
                         </li>
                         </ul>
                       </li>
-                    {{-- end article --}}
+                    {{-- end --}}
 
-                    {{-- start page --}}
+                    {{-- start --}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
@@ -151,9 +151,9 @@
                         </li> --}}
                         </ul>
                      </li>
-                    {{-- end page --}}
+                    {{-- end --}}
 
-                    {{-- start article --}}
+                    {{-- start --}}
                      <li class="nav-item">
                         <a href="#" class="nav-link">
                         <i class="nav-icon"></i>
@@ -175,13 +175,108 @@
                         </li>
                         </ul>
                       </li>
-                    {{-- end article --}}
+                    {{-- end --}}
 
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Для торжеств
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('forcelebration.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('forcelebration.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end  --}}
+
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Корпорати клиентам
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('corporateclient.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('corporateclient.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li> --}}
+                        </ul>
+                      </li>
+                    {{-- end --}}
+
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Рецепты
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('recipe.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('recipe.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end  --}}
+
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Рецепты Новости
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('recipenew.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('recipenew.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end --}}
+                    
                 </ul>
             </nav>
         </div>
     </aside>
-
 
     <div class="content-wrapper" style="background-color: rgb(241, 233, 222)">
         @yield('content')

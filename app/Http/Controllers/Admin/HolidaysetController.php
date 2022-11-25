@@ -36,10 +36,10 @@ class HolidaysetController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\Admin\UpdateHolidayset  $request
+     * @param  App\Http\Requests\Admin\CreateHolidayset  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UpdateHolidayset $request)
+    public function store(CreateHolidayset $request)
     {
         $data = $request->all();
 
@@ -49,9 +49,9 @@ class HolidaysetController extends Controller
         $data['slug_en'] = Str::slug($request->title_en, '-', 'en');
 
         if (Holidayset::create($data)) {
-            return redirect()->route('holidayset.index')->with('message', "Holiday set created seccessfully");
+            return redirect()->route('holidayset.index')->with('message', "Holiday sets created seccessfully");
         }
-        return redirect()->route('holidaydet.index')->with('message', "unable to created Holiday set");
+        return redirect()->route('holidaydet.index')->with('message', "unable to created Holiday sets");
     }
 
     /**
@@ -80,13 +80,29 @@ class HolidaysetController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\Admin\UpdateHolidayset  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateHolidayset $request, $id)
     {
-        //
+        if (!Holidayset::find($id)) {
+            return redirect()->route('holidayset.index')->with('message', "Holiday sets not fount");
+        }
+
+        $holidayset = Holidayset::find($id);
+
+        $data = $request->all();
+        $data['image'] = Holidayset::updateImage($request, $holidayset);
+
+        $data['slug_ru'] = Str::slug($request->title_ru, '-', 'ru');
+        $data['slug_uz'] = Str::slug($request->title_uz, '-', 'uz');
+        $data['slug_en'] = Str::slug($request->title_en, '-', 'en');
+
+        if ($holidayset->update($data)) {
+            return redirect()->route('holidayset.index')->with('message', "Holiday sets changed successfully");
+        }
+        return redirect()->route('holidayset.index')->with('message', "Unable to update Holiday sets");
     }
 
     /**
@@ -97,6 +113,19 @@ class HolidaysetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Holidayset::find($id)) {
+            return redirect()->route('holidayset.index')->with('message', "Holiday sets not found");
+        }
+
+        $holidayset = Holidayset::find($id);
+
+        if (File::exists(public_path() . $holidayset->image)) {
+            File::delete(public_path() . $holidayset->image);
+        }
+
+        if ($holidayset->delete()) {
+            return redirect()->route('holidayset.index')->with('message', "Holiday sets deleted successfully");
+        }
+        return redirect()->route('holidayset.index')->with('message', "unable to delete holiday sets");
     }
 }

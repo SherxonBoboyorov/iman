@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="page-content-wrapper ">
 
     <div class="container-fluid">
@@ -8,17 +9,18 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Добавить Каталог</h4>
+                    <h4 class="page-title">Добавить Корпоративным клиентам</h4>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
 
         <!-- end page title end breadcrumb -->
-        <form action="{{ route('category.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('corporateclieant.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card">
                 <div class="card-body">
+
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-4">
                             <label for="title_uz">Заголовок [Uzbek]</label>
@@ -56,64 +58,52 @@
                             </div>
                             @endif
                         </div>
-                    </div>
-                    <div class="row" style="margin-top: 15px">
+                     </div><br>
+
+                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
-                            <label for="description_uz">контент [Uzbek]</label>
-                            <input type="text" id="description_uz" class="form-control" name="description_uz">
-                            @if($errors->has('description_uz'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('description_uz') }}
-                                </div>
+                            <label for="content_uz">Контент [uzbek]</label>
+                            <textarea name="content_uz" class="my-editor" id="content_uz" cols="30" rows="10"></textarea>
+                            @if($errors->has('content_uz'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ $errors->first('content_uz') }}
+                            </div>
                             @endif
                         </div>
                     </div>
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
-                            <label for="description_ru">контент [Russian]</label>
-                            <input type="text" id="description_ru" class="form-control" name="description_ru">
-                            @if($errors->has('description_ru'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('description_ru') }}
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 15px">
-                        <div class="col-md-12">
-                            <label for="description_en">контент [English]</label>
-                            <input type="text" id="description_en" class="form-control" name="description_en">
-                            @if($errors->has('description_en'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('description_en') }}
-                                </div>
+                            <label for="content_ru">Контент [Russian]</label>
+                            <textarea name="content_ru" class="my-editor" id="content_ru" cols="30" rows="10"></textarea>
+                            @if($errors->has('content_ru'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ $errors->first('content_ru') }}
+                            </div>
                             @endif
                         </div>
                     </div>
 
                     <div class="row" style="margin-top: 15px">
-                        <div class="col-md-6">
-                            <label for="image">Изображение</label>
-                            <input type="file" name="image" class="form-control-file">
-                            @if($errors->has('image'))
+                        <div class="col-md-12">
+                            <label for="content_en">Контент [English]</label>
+                            <textarea name="content_en" class="my-editor" id="content_en" cols="30" rows="10"></textarea>
+                            @if($errors->has('content_en'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                {{ $errors->first('image') }}
+                                {{ $errors->first('content_en') }}
                             </div>
                             @endif
                         </div>
                     </div>
+
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-success btn-block">Сохранить</button>
@@ -126,4 +116,7 @@
     </div><!-- container -->
 
 </div>
+@endsection
+@section('custom_js')
+@component('admin.utils.tinymce')@endcomponent
 @endsection

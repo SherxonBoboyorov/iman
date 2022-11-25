@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">Add slider</h4>
+                        <h4 class="page-title">Добавить Слайдер</h4>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="title_uz">Title [Latin Uzbek]</label>
+                                <label for="title_uz">Заголовок [Uzbek]</label>
                                 <input type="text" id="title_uz" class="form-control" name="title_uz">
                                 @if($errors->has('title_uz'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -33,7 +33,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4">
-                                <label for="title_ru">Title [Russian]</label>
+                                <label for="title_ru">Заголовок [Russian]</label>
                                 <input type="text" id="title_ru" class="form-control" name="title_ru">
                                 @if($errors->has('title_ru'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -45,7 +45,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4">
-                                <label for="title_en">Title [English]</label>
+                                <label for="title_en">Заголовок [English]</label>
                                 <input type="text" id="title_en" class="form-control" name="title_en">
                                 @if($errors->has('title_en'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="description_uz">Content [Uzbek]</label>
+                                <label for="description_uz">контент [Uzbek]</label>
                                 <input type="text" id="description_uz" class="form-control" name="description_uz">
                                 @if($errors->has('description_uz'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="description_ru">Content [Russian]</label>
+                                <label for="description_ru">контент [Russian]</label>
                                 <input type="text" id="description_ru" class="form-control" name="description_ru">
                                 @if($errors->has('description_ru'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -87,7 +87,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="description_en">Content [English]</label>
+                                <label for="description_en">контент [English]</label>
                                 <input type="text" id="description_en" class="form-control" name="description_en">
                                 @if($errors->has('description_en'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="link">Link</label>
+                                <label for="link">Ссылка</label>
                                 <input type="text" id="link" class="form-control" name="link">
                                 @if($errors->has('link'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">

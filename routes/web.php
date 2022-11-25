@@ -10,6 +10,10 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\HolidaysetController;
+use App\Http\Controllers\Admin\ForcelebrationController;
+use App\Http\Controllers\Admin\CorporateclientController;
+use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\Admin\RecipenewController;
 use Unisharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -29,7 +33,11 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
          'product' => ProductController::class,
          'article' => ArticleController::class,
          'page' =>  PageController::class,
-         'holidayset' => HolidaysetController::class
+         'holidayset' => HolidaysetController::class,
+         'forcelebration' => ForcelebrationController::class,
+         'corporateclient' => CorporateclientController::class,
+         'recipe' => RecipeController::class,
+         'recipenew' => RecipenewController::class
     ]);
 });
 

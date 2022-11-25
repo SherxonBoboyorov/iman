@@ -8,19 +8,35 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Добавить Праздничные наборы</h4>
+                    <h4 class="page-title">Добавить Рецепты Новости</h4>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
 
         <!-- end page title end breadcrumb -->
-        <form action="{{ route('holidayset.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('recipenew.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card">
                 <div class="card-body">
                     <div class="row" style="margin-top: 15px">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
+                            <label>Выберите рецепты</label>
+                            <select name="recipe_id" id="recipe_id" class="form-control">
+                                @foreach ($recipes as $recipe)
+                                    <option value="{{ $recipe->id }}">{{ $recipe->title_ru }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('recipe_id'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ $errors->first('recipe_id') }}
+                            </div>
+                            @endif
+                        </div>
+                        <div class="col-md-3">
                             <label for="title_uz">Заголовок [Uzbek]</label>
                             <input type="text" id="title_uz" class="form-control" name="title_uz">
                             @if($errors->has('title_uz'))
@@ -32,7 +48,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="title_ru">Заголовок [Russian]</label>
                             <input type="text" id="title_ru" class="form-control" name="title_ru">
                             @if($errors->has('title_ru'))
@@ -44,7 +60,7 @@
                             </div>
                             @endif
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="title_en">Заголовок [English]</label>
                             <input type="text" id="title_en" class="form-control" name="title_en">
                             @if($errors->has('title_en'))
@@ -57,172 +73,6 @@
                             @endif
                         </div>
                      </div><br>
-
-                     <hr><h3>Усовершенствованные процедуры мониторинга</h3><hr>
-
-                    <div class="row" style="margin-top: 15px">
-                     <div class="col-md-6">
-                        <label for="package_uz">Упаковка: [Uzbek]</label>
-                        <input type="text" id="package_uz" class="form-control" name="package_uz">
-                        @if($errors->has('package_uz'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                 <span aria-hidden="true">&times;</span>
-                             </button>
-                              {{ $errors->first('package_uz') }}
-                           </div>
-                          @endif
-                       </div>
-                    </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-6">
-                                <label for="package_ru">Упаковка: [Russian]</label>
-                                <input type="text" id="package_ru" class="form-control" name="package_ru">
-                                @if($errors->has('package_ru'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('package_ru') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-6">
-                                <label for="package_en">Упаковка: [English]</label>
-                                <input type="text" id="package_en" class="form-control" name="package_en">
-                                @if($errors->has('package_en'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('package_en') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <br>
-
-                          <div class="row" style="margin-top: 15px">
-                            <div class="col-md-3">
-                                <label for="weight"> Вес:</label>
-                                <input type="number" id="weight" class="form-control" name="weight">
-                                @if($errors->has('weight'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('weight') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-6">
-                            <label for="compound_uz">Состав: [Uzbek]</label>
-                            <input type="text" id="compound_uz" class="form-control" name="compound_uz">
-                            @if($errors->has('compound_uz'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ $errors->first('compound_uz') }}
-                            </div>
-                            @endif
-                        </div>
-                      </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-6">
-                                <label for="compound_ru">Состав: [Russian]</label>
-                                <input type="text" id="compound_ru" class="form-control" name="compound_ru">
-                                @if($errors->has('compound_ru'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('compound_ru') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-6">
-                                <label for="compound_en">Состав: [English]</label>
-                                <input type="text" id="compound_en" class="form-control" name="compound_en">
-                                @if($errors->has('compound_en'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    {{ $errors->first('compound_en') }}
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="row" style="margin-top: 15px">
-                            <div class="col-md-2">
-                            <label for="best_before_date_uz">Срок годности: [Uzbek]</label>
-                            <input type="text" id="best_before_date_uz" class="form-control" name="best_before_date_uz">
-                            @if($errors->has('best_before_date_uz'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ $errors->first('best_before_date_uz') }}
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 15px">
-                        <div class="col-md-2">
-                            <label for="best_before_date_ru">Срок годности: [Russian]</label>
-                            <input type="text" id="best_before_date_ru" class="form-control" name="best_before_date_ru">
-                            @if($errors->has('best_before_date_ru'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ $errors->first('best_before_date_ru') }}
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 15px">
-                        <div class="col-md-2">
-                            <label for="best_before_date_en">Срок годности: [English]</label>
-                            <input type="text" id="best_before_date_en" class="form-control" name="best_before_date_en">
-                            @if($errors->has('best_before_date_en'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ $errors->first('best_before_date_en') }}
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row" style="margin-top: 15px">
-                        <div class="col-md-3">
-                            <label for="price">Цена</label>
-                            <input type="number" id="price" class="form-control" name="price">
-                            @if($errors->has('price'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                {{ $errors->first('price') }}
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <br><hr><br>
 
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
@@ -348,6 +198,21 @@
                               @endif
                           </div>
                       </div><br>
+
+                      <div class="row">
+                        <div class="col-md-12">
+                            <label for="frame">Ссылка Youtube</label>
+                            <input type="text" id="frame" class="form-control" name="frame">
+                            @if($errors->has('frame'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ $errors->first('frame') }}
+                            </div>
+                            @endif
+                        </div>
+                    </div>
 
 
                       <div class="row" style="margin-top: 15px">

@@ -8,14 +8,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Добавить Праздничные наборы</h4>
+                    <h4 class="page-title">Добавить Для торжеств</h4>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
 
         <!-- end page title end breadcrumb -->
-        <form action="{{ route('holidayset.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('forcelebration.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card">
                 <div class="card-body">
