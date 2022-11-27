@@ -17,9 +17,11 @@ use App\Http\Controllers\Admin\RecipenewController;
 use Unisharp\Laravel\LaravelFilemanager\Lfm;
 
 
-Route::get('/', static function () {
-    return view('welcome');
-});
+use App\Http\Controllers\Front\IndexController;
+
+// Route::get('/', static function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -40,6 +42,17 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
          'recipenew' => RecipenewController::class
     ]);
 });
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('/', [IndexController::class, 'hompage'])->name('/');
+    });
+
+    
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

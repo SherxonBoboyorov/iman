@@ -1,0 +1,75 @@
+// to_corporative start
+
+.to_corporative{
+    position: relative;
+    margin-bottom: 80px;
+
+    &__text{
+        margin-top: 30px;
+        @include fontAll(16px,400,$text);
+        line-height: 135%;
+        text-align: justify;
+        margin-top: 20px;
+        h1,h2,h3,h4,h5,h6,em,strong{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+
+        a{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+
+        img{
+            width: 49%;
+            height: 420px;
+            object-fit: cover;
+            float: left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 5px;
+        }
+
+        img:nth-child(even){
+            float: right;
+            margin-right: 0;
+            margin-left: 5px;
+        }
+    }
+
+    .recipes_in__videos{
+        margin-top: 30px;
+    }
+}
+
+// to_corporative end
+
+@media (max-width:1200px){
+    .to_corporative__text {
+        font-size: 14px;
+    }
+
+    .to_corporative__text img{
+        height: 350px;
+    }
+}
+
+@media (max-width:900px){
+    .to_corporative__text img {
+        height: auto;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .to_corporative__text img:nth-child(even){
+        margin-right: 0;
+    }
+}

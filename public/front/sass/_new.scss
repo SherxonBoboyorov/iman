@@ -1,0 +1,110 @@
+// new_in start
+
+.new_in{
+    position: relative;
+    margin-bottom: 80px;
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px; 
+        margin-top: 30px;
+    }
+
+    &__item{
+        background-color: $fff;
+        padding-bottom: 30px;
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.12);
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &__img{
+        @include fiximg(100%,420px,true);
+        margin-bottom: 20px;
+        img{
+            object-position: center;
+            max-height: 420px;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__title__h3{
+        @include fontAll(20px,600,$title);
+        line-height: 130%;
+        margin-bottom: 20px;
+        padding: 0 30px;
+
+        max-height: 52px;
+        -webkit-line-clamp: 2;
+        position: relative;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    &__link{
+        margin: 0 30px;
+        display: inline-block;
+        background-color:$fon;
+        padding: 18px 35px;
+        text-align: center;
+        @include fontAll(14px,500,$fff);
+        line-height: 100%;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+        @extend%transition;
+
+        &:hover{
+            background-color:$hover;
+        }
+    }
+}
+
+// new_in end
+
+
+@media (max-width:1150px){
+    .new_in__list{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media (max-width:900px){
+    .new_in__img{
+        height: auto;
+    }
+}
+
+@media (max-width:700px){
+    .new_in__list{
+        grid-template-columns: 1fr;
+    }
+
+    .new_in__title__h3{
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    .new_in__link{
+        margin: 0 20px;
+    }
+
+    .new_in__item{
+        padding-bottom: 20px;
+    }
+}
