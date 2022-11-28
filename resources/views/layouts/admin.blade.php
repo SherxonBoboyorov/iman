@@ -272,7 +272,54 @@
                         </ul>
                       </li>
                     {{-- end --}}
-                    
+
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Мнение наших гурманов
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('opinion.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('opinion.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end --}}
+
+                    {{-- start --}}
+                     <li class="nav-item">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Последние публикации
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('publication.index') }}" class="nav-link">
+                            <p>Все</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('publication.create') }}" class="nav-link">
+                            <p>Добавить</p>
+                            </a>
+                        </li>
+                        </ul>
+                      </li>
+                    {{-- end --}}
                 </ul>
             </nav>
         </div>

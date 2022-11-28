@@ -14,14 +14,16 @@ use App\Http\Controllers\Admin\ForcelebrationController;
 use App\Http\Controllers\Admin\CorporateclientController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\RecipenewController;
+use App\Http\Controllers\Admin\OpinionController;
+use App\Http\Controllers\Admin\PublicationController;
 use Unisharp\Laravel\LaravelFilemanager\Lfm;
 
 
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\CatalogController;
+use App\Http\Controllers\Front\CatalogInsideController;
+use App\Http\Controllers\Front\NewController;
 
-// Route::get('/', static function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
@@ -39,7 +41,9 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
          'forcelebration' => ForcelebrationController::class,
          'corporateclient' => CorporateclientController::class,
          'recipe' => RecipeController::class,
-         'recipenew' => RecipenewController::class
+         'recipenew' => RecipenewController::class,
+         'opinion' => OpinionController::class,
+         'publication' => PublicationController::class,
     ]);
 });
 
@@ -50,9 +54,15 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
         Route::get('/', [IndexController::class, 'hompage'])->name('/');
+        Route::get('catalog', [CatalogController::class, 'catalog'])->name('catalog');
+        Route::get('products', [CatalogInsideController::class, 'list'])->name('products');
+        Route::get('products/{slug}', [CatalogInsideController::class, 'show'])->name('product');
+        Route::get('articles', [NewController::class, 'list'])->name('articles');
+        Route::get('articles/{slug}', [NewController::class, 'show'])->name('article');
     });
 
-    
+
+
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
