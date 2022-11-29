@@ -50,27 +50,8 @@
                    @endforeach
                 </div>
 
-                <ul class="catalog_in__pagination">
-                    <li>
-                        <a href="#!" class="catalog_in__pagination__next"><i class="fas fa-chevron-left"></i></a>
-                    </li>
+                {{ $products->links("vendor.pagination.pagination")}}
 
-                    <li>
-                        <a href="#!" class="catalog_in__pagination__link active">1</a>
-                    </li>
-
-                    <li>
-                        <a href="#!" class="catalog_in__pagination__link">2</a>
-                    </li>
-
-                    <li>
-                        <a href="#!" class="catalog_in__pagination__link">3</a>
-                    </li>
-
-                    <li>
-                        <a href="#!" class="catalog_in__pagination__next"><i class="fas fa-chevron-right"></i></a>
-                    </li>
-                </ul>
             </div>
         </section>
     </div>

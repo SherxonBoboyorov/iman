@@ -10,7 +10,7 @@ class CatalogInsideController extends Controller
 {
     public function list()
     {
-        $products = Product::orderBy('created_at', 'DESC')->get();
+        $products = Product::orderBy('created_at', 'DESC')->paginate(12);
         return view('front.catalog.list', compact('products'));
     }
 

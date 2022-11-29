@@ -10,7 +10,7 @@ class NewController extends Controller
 {
     public function list()
     {
-        $articles = Article::orderBy('created_at', 'DESC')->get();
+        $articles = Article::orderBy('created_at', 'DESC')->paginate(12);
         return view('front.articles.list', compact('articles'));
     }
 

@@ -11,11 +11,11 @@
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="recipes.html" class="about_us__menu__link">Рецепты</a>
+                        <a href="{{ route('recipenews') }}" class="about_us__menu__link">Рецепты</a>
                     </li>
 
                     <li>
-                        <a href="recipes_in.html" class="about_us__menu__link">Consectetur adipiscing elit</a>
+                        <a class="about_us__menu__link">Consectetur adipiscing elit</a>
                     </li>
                 </ul>
             </div>
@@ -32,15 +32,15 @@
             <div class="recipes_in__cart">
 
                 <div class="recipes_in__videos">
-                    <a data-fancybox="video-gallery" href="https://youtu.be/RHyB2DeKQRs?list=RDGEOcT0gvOGc">
-                        <img src="foto/new_in_4.png" alt="video"/>
+                    <a data-fancybox="video-gallery" href="{{ $recipenew->frame }}">
+                        <img src="{{ asset($recipenew->image) }}" alt="video"/>
                         <!-- play start -->
 
                         <div class="button__min is-play" href="#">
                             <div class="button-outer-circle has-scale-animation"></div>
                             <div class="button-outer-circle has-scale-animation has-delay-short"></div>
                             <div class="button-icon is-play">
-                                <img class="about_contint_in__video__img__play" alt="All" src="foto/play.svg">
+                                <img class="about_contint_in__video__img__play" alt="All" src="{{ asset('front/foto/play.svg') }}">
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                     </a>
                 </div>
 
-                <h3 class="recipes_in__title__h3">Consectetur adipiscing elit</h3>
+                <h3 class="recipes_in__title__h3">{{ $recipenew->{'title_' .app()->getLocale()} }}</h3>
 
             </div>
         </section>

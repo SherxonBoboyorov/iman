@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\Admin\RecipenewController;
 use App\Http\Controllers\Admin\OpinionController;
 use App\Http\Controllers\Admin\PublicationController;
+use App\Http\Controllers\Admin\CallbackController;
 use Unisharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -23,7 +24,12 @@ use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\Front\CatalogController;
 use App\Http\Controllers\Front\CatalogInsideController;
 use App\Http\Controllers\Front\NewController;
-
+use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\RecipesController;
+use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\CorporativeController;
+use App\Http\Controllers\Front\HolidayController;
+use App\Http\Controllers\Front\CelebrationController;
 
 Auth::routes();
 
@@ -44,6 +50,7 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
          'recipenew' => RecipenewController::class,
          'opinion' => OpinionController::class,
          'publication' => PublicationController::class,
+         'callback' => CallbackController::class,
     ]);
 });
 
@@ -59,6 +66,15 @@ Route::group(
         Route::get('products/{slug}', [CatalogInsideController::class, 'show'])->name('product');
         Route::get('articles', [NewController::class, 'list'])->name('articles');
         Route::get('articles/{slug}', [NewController::class, 'show'])->name('article');
+        Route::get('about', [AboutController::class, 'about'])->name('about');
+        Route::get('recipenews', [RecipesController::class, 'list'])->name('recipenews');
+        Route::get('recipenews/{slug}', [RecipesController::class, 'show'])->name('recipenew');
+        Route::get('contact', [ContactController::class, 'index'])->name('contact');
+        Route::get('corporative', [CorporativeController::class, 'corporative'])->name('corporative');
+        Route::get('holidaysets', [HolidayController::class, 'list'])->name('holidaysets');
+        Route::get('holidaysets/{slug}', [HolidayController::class, 'show'])->name('holidayset');
+        Route::get('forcelebrations', [CelebrationController::class, 'list'])->name('forcelebrations');
+        Route::get('forcelebrations/{slug}', [CelebrationController::class, 'show'])->name('forcelebration');
     });
 
 

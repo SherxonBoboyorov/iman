@@ -7,7 +7,7 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">Новинки</h2>
+                <h2 class="new__title__h2">Праздничные наборы</h2>
 
                 <ul class="about_us__menu">
                     <li>
@@ -15,7 +15,7 @@
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">Новинки</a>
+                        <a class="about_us__menu__link">Праздничные наборы</a>
                     </li>
                 </ul>
             </div>
@@ -31,23 +31,23 @@
         <section class="container">
             <div class="new_in__cart">
 
-                <h2 class="new__title__h2">Новости и Новинки от ИМАН</h2>
+                <h2 class="new__title__h2">Праздники вместе с ИМАН</h2>
 
                 <div class="new_in__list">
-                  @foreach ($articles as $article)
+                  @foreach ($forcelebrations as $forcelebration)
                     <div class="new_in__item">
 
                         <div class="new_in__img">
-                            <img src="{{ asset($article->image) }}" alt="new_in">
+                            <img src="{{ asset($forcelebration->image) }}" alt="new_in">
                         </div>
-                        <h3 class="new_in__title__h3">{{ $article->{'title_' . app()->getLocale()} }}</h3>
+                        <h3 class="new_in__title__h3">{{ $forcelebration->{'title_' . app()->getLocale()} }}</h3>
 
-                        <a href="{{ route('article', $article->{'slug_' . app()->getLocale()}) }}" class="new_in__link">Подробнее</a>
+                        <a href="{{ route('forcelebration', $forcelebration->{'slug_' . app()->getLocale()}) }}" class="new_in__link">Подробнее</a>
                     </div>
                    @endforeach
                 </div>
 
-                {{ $articles->links("vendor.pagination.pagination")}}
+            {{ $forcelebrations->links("vendor.pagination.pagination")}}
 
             </div>
         </section>

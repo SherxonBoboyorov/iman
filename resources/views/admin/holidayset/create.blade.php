@@ -211,7 +211,7 @@
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-3">
                             <label for="price">Цена</label>
-                            <input type="number" id="price" class="form-control" name="price">
+                            <input type="text" id="price" class="form-control" name="price">
                             @if($errors->has('price'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

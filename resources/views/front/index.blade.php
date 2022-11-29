@@ -44,7 +44,7 @@
                             </p>
                         </div>
 
-                        <a href="#!" class="catalog__link">В каталог</a>
+                        <a href="{{ route('products', ['category' => $category->id]) }}" class="catalog__link">В каталог</a>
                     </div>
                   @endforeach
                 </div>
@@ -95,13 +95,15 @@
             <div class="about__cart">
                 <h2 class="new__title__h2">О нас</h2>
 
-                <div class="about__text">
+                @foreach ($pages as $page)
+                 <div class="about__text">
                     <p>
-                        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                        {!! $page->{'content_' . app()->getLocale()} !!}
                     </p>
-                </div>
+                 </div>
+                @endforeach
 
-                <a href="about.html" class="about__link">Подробнее</a>
+                <a href="{{ route('about') }}" class="about__link">Подробнее</a>
             </div>
         </section>
     </div>
@@ -118,64 +120,26 @@
                 <h2 class="new__title__h2">Мнение наших гурманов</h2>
 
                 <div class="opinion_of__list">
-
+                  @foreach ($opinions as $opinion)
                     <div class="opinion_of__item">
                         <div class="opinion_of__text">
                             <p>
-                                Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est
+                                {!! $opinion->{'content_' . app()->getLocale()} !!}
                             </p>
                         </div>
 
                         <div class="opinion_of__cart__list">
                             <div class="opinion_of__icons">
-                                <img src="foto/opinion_of.svg" alt="opinion_of">
+                                <img src="{{ asset('front/foto/opinion_of.svg') }}" alt="opinion_of">
                             </div>
 
                             <section>
-                                <h3 class="opinion_of__title__h3">John Doe</h3>
-                                <h4 class="opinion_of__title__h4">ООО “Вкусвилл”</h4>
+                                <h3 class="opinion_of__title__h3">{{ $opinion->{'name_' . app()->getLocale()} }}</h3>
+                                <h4 class="opinion_of__title__h4">{{ $opinion->{'company_name_' . app()->getLocale() } }}</h4>
                             </section>
                         </div>
                     </div>
-
-                    <div class="opinion_of__item">
-                        <div class="opinion_of__text">
-                            <p>
-                                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            </p>
-                        </div>
-
-                        <div class="opinion_of__cart__list">
-                            <div class="opinion_of__icons">
-                                <img src="foto/opinion_of.svg" alt="opinion_of">
-                            </div>
-
-                            <section>
-                                <h3 class="opinion_of__title__h3">ООО “Sigma”</h3>
-                                <h4 class="opinion_of__title__h4">ООО “Вкусвилл”</h4>
-                            </section>
-                        </div>
-                    </div>
-
-                    <div class="opinion_of__item">
-                        <div class="opinion_of__text">
-                            <p>
-                                Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est
-                            </p>
-                        </div>
-
-                        <div class="opinion_of__cart__list">
-                            <div class="opinion_of__icons">
-                                <img src="foto/opinion_of.svg" alt="opinion_of">
-                            </div>
-
-                            <section>
-                                <h3 class="opinion_of__title__h3">John Doe</h3>
-                                <h4 class="opinion_of__title__h4">ООО “Вкусвилл”</h4>
-                            </section>
-                        </div>
-                    </div>
-
+                  @endforeach
                 </div>
             </div>
         </section>
@@ -192,103 +156,34 @@
                 <h2 class="new__title__h2">Последние публикации</h2>
 
                 <div class="publications__list owl-carousel">
+                    @foreach ($publications as $publication)
 
                     <div class="publications__item">
                         <a href="#!">
 
                             <div class="publications__cart__list">
                                 <div class="publications__cart__item">
-                                    <img src="foto/publications_logo.png" alt="publications">
+                                    <img src="{{ asset('front/foto/publications_logo.png') }}" alt="publications">
                                     <h3 class="publications__title__h3">Iman</h3>
                                 </div>
 
-                                <h4 class="publications__data">2 дня назад</h4>
+                                <h4 class="publications__data">{{ $publication->created_at->diffForHumans() }}</h4>
                             </div>
 
                             <div class="publications__img">
-                                <img src="foto/publications_1.png" alt="publications">
+                                <img src="{{ asset($publication->image) }}" alt="publications">
                             </div>
 
                             <div class="publications__text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore sed do</p>
+                                <p>{!! $publication->{'content_' . app()->getLocale()} !!}</p>
                             </div>
 
                         </a>
                     </div>
-
-                    <div class="publications__item">
-                        <a href="#!">
-
-                            <div class="publications__cart__list">
-                                <div class="publications__cart__item">
-                                    <img src="foto/publications_logo.png" alt="publications">
-                                    <h3 class="publications__title__h3">Iman</h3>
-                                </div>
-
-                                <h4 class="publications__data">10 дней назад</h4>
-                            </div>
-
-                            <div class="publications__img">
-                                <img src="foto/publications_2.png" alt="publications">
-                            </div>
-
-                            <div class="publications__text">
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo sed do</p>
-                            </div>
-
-                        </a>
-                    </div>
-
-                    <div class="publications__item">
-                        <a href="#!">
-
-                            <div class="publications__cart__list">
-                                <div class="publications__cart__item">
-                                    <img src="foto/publications_logo.png" alt="publications">
-                                    <h3 class="publications__title__h3">Iman</h3>
-                                </div>
-
-                                <h4 class="publications__data">20 дней назад</h4>
-                            </div>
-
-                            <div class="publications__img">
-                                <img src="foto/publications_3.png" alt="publications">
-                            </div>
-
-                            <div class="publications__text">
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                            </div>
-
-                        </a>
-                    </div>
-
-                    <div class="publications__item">
-                        <a href="#!">
-
-                            <div class="publications__cart__list">
-                                <div class="publications__cart__item">
-                                    <img src="foto/publications_logo.png" alt="publications">
-                                    <h3 class="publications__title__h3">Iman</h3>
-                                </div>
-
-                                <h4 class="publications__data">2 дня назад</h4>
-                            </div>
-
-                            <div class="publications__img">
-                                <img src="foto/publications_1.png" alt="publications">
-                            </div>
-
-                            <div class="publications__text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore sed do</p>
-                            </div>
-
-                        </a>
-                    </div>
-
+                  @endforeach
                 </div>
-
                 <div class="publications__button">
-                    <a href="#!" class="publications__link">Подпишитесь на нас <span><i class="fab fa-instagram"></i></span></a>
+                    <a href="https://www.instagram.com/" class="publications__link">Подпишитесь на нас <span><i class="fab fa-instagram"></i></span></a>
                 </div>
             </div>
         </section>

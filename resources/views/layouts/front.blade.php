@@ -51,27 +51,27 @@
                             </li>
 
                             <li>
-                                <a href="new.html " class="header__menu__link">Праздничные наборы</a>
+                                <a href="{{ route('holidaysets') }}" class="header__menu__link">Праздничные наборы</a>
                             </li>
 
                             <li>
-                                <a href="new.html " class="header__menu__link">Для торжеств </a>
+                                <a href="{{ route('forcelebrations') }}" class="header__menu__link">Для торжеств </a>
                             </li>
 
                             <li>
-                                <a href="to_corporative.html" class="header__menu__link">Корпоративным клиентам</a>
+                                <a href="{{ route('corporative') }}" class="header__menu__link">Корпоративным клиентам</a>
                             </li>
 
                             <li>
-                                <a href="recipes.html" class="header__menu__link">Рецепты</a>
+                                <a href="{{ route('recipenews') }}" class="header__menu__link">Рецепты</a>
                             </li>
 
                             <li>
-                                <a href="about.html" class="header__menu__link">О нас </a>
+                                <a href="{{ route('about') }}" class="header__menu__link">О нас </a>
                             </li>
 
                             <li>
-                                <a href="contacts.html" class="header__menu__link">
+                                <a href="{{ route('contact') }}" class="header__menu__link">
                                     <span><i class="fas fa-map-marker-alt"></i></span>
                                 </a>
                             </li>
@@ -131,26 +131,26 @@
                     <div class="footer__list">
                         <div class="footer__list__item">
                             <div class="footer__logo">
-                                <a href="index.html">
+                                <a href="{{ route('/') }}">
                                     <img src="{{ asset('front/foto/logo_footer.svg') }}" alt="logo_footer">
                                 </a>
                             </div>
 
                             <ul class="footer__menu__icons">
                                 <li>
-                                    <a href="#!" class="footer__link__icons">
+                                    <a href="https://www.instagram.com/" class="footer__link__icons">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__icons">
+                                    <a href="https://www.facebook.com/" class="footer__link__icons">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__icons">
+                                    <a href="https://telegram.org/" class="footer__link__icons">
                                         <i class="fab fa-telegram-plane"></i>
                                     </a>
                                 </li>
@@ -160,7 +160,7 @@
                         <div class="footer__cart__item">
                             <ul class="footer__cart__menu">
                                 <li>
-                                    <a href="index.html" class="footer__link__menu">Главная</a>
+                                    <a href="{{ route('/') }}" class="footer__link__menu">Главная</a>
                                 </li>
 
                                 <li>
@@ -168,29 +168,29 @@
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">новинки</a>
+                                    <a href="{{ route('articles') }}" class="footer__link__menu">новинки</a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">Праздничные наборы</a>
+                                    <a href="{{ route('holidaysets') }}" class="footer__link__menu">Праздничные наборы</a>
                                 </li>
                             </ul>
 
                             <ul class="footer__cart__menu">
                                 <li>
-                                    <a href="#!" class="footer__link__menu">Для торжеств</a>
+                                    <a href="{{ route('forcelebrations') }}" class="footer__link__menu">Для торжеств</a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">Корпоративным клиентам</a>
+                                    <a href="{{ route('corporative') }}" class="footer__link__menu">Корпоративным клиентам</a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">Рецепты</a>
+                                    <a href="{{ route('recipenews') }}" class="footer__link__menu">Рецепты</a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">О нас</a>
+                                    <a href="{{ route('about') }}" class="footer__link__menu">О нас</a>
                                 </li>
                             </ul>
                         </div>

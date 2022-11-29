@@ -12,11 +12,11 @@
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="index.html" class="about_us__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about_us__menu__link">Главная</a>
                     </li>
 
                     <li>
-                        <a href="contacts.html" class="about_us__menu__link">Контакты</a>
+                        <a class="about_us__menu__link">Контакты</a>
                     </li>
                 </ul>
             </div>
