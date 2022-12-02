@@ -7,15 +7,15 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">Праздничные наборы</h2>
+                <h2 class="new__title__h2">@lang('main.holiday_sets')</h2>
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('/') }}" class="about_us__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about_us__menu__link">@lang('main.homepage')</a>
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">Праздничные наборы</a>
+                        <a class="about_us__menu__link">@lang('main.holiday_sets')</a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
         <section class="container">
             <div class="new_in__cart">
 
-                <h2 class="new__title__h2">Праздники вместе с ИМАН</h2>
+                <h2 class="new__title__h2">@lang('main.holidays_with_IMAN')</h2>
 
                 <div class="new_in__list">
                   @foreach ($holidaysets as $holidayset)
@@ -42,7 +42,7 @@
                         </div>
                         <h3 class="new_in__title__h3">{{ $holidayset->{'title_' . app()->getLocale()} }}</h3>
 
-                        <a href="{{ route('holidayset', $holidayset->{'slug_' . app()->getLocale()}) }}" class="new_in__link">Подробнее</a>
+                        <a href="{{ route('holidayset', $holidayset->{'slug_' . app()->getLocale()}) }}" class="new_in__link">@lang('main.more')</a>
                     </div>
                    @endforeach
                 </div>

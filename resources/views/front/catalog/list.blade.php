@@ -7,15 +7,15 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">Шоколадные конфеты</h2>
+                <h2 class="new__title__h2">@lang('main.chocolate_candies')</h2>
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('catalog') }}" class="about_us__menu__link">Каталог</a>
+                        <a href="{{ route('catalog') }}" class="about_us__menu__link">@lang('main.catalog')</a>
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">Шоколадные конфеты</a>
+                        <a class="about_us__menu__link">@lang('main.chocolate_candies')</a>
                     </li>
                 </ul>
             </div>
@@ -38,14 +38,14 @@
                         </div>
 
                         <div class="new__button">
-                            <a href="{{ route('product', $product->{'slug_' . app()->getLocale()}) }}" class="new__link">Подробнее</a>
+                            <a href="{{ route('product', $product->{'slug_' . app()->getLocale()}) }}" class="new__link">@lang('main.more')</a>
                         </div>
 
                         <h3 class="new__title__h3">{{ $product->{'title_' . app()->getLocale()} }}</h3>
                         <div class="new__text">
                             <p>{!! $product->{'description_' . app()->getLocale()} !!}</p>
                         </div>
-                        <h4 class="new__sum">{{ $product->price }}<span>сум</span></h4>
+                        <h4 class="new__sum">{{ $product->price }}<span>@lang('main.sum')</span></h4>
                     </div>
                    @endforeach
                 </div>

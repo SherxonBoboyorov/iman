@@ -16,10 +16,9 @@ class IndexController extends Controller
 {
     public function hompage()
     {
-
         $sliders = Slider::all();
         $categories = Category::orderBy('created_at', 'DESC')->get()->take(8);
-        $articles = Article::orderBy('created_at', 'DESC')->get();
+        $articles = Article::orderBy('created_at', 'DESC')->paginate(6);
         $products = Product::orderBy('created_at', 'DESC')->get();
         $pages = Page::all();
         $opinions = Opinion::orderBy('created_at', 'DESC')->get();

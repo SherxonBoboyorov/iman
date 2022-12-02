@@ -8,15 +8,15 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">О нас</h2>
+                <h2 class="new__title__h2">@lang('main.about_us')</h2>
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('/') }}" class="about_us__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about_us__menu__link">@lang('main.homepage')</a>
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">О нас</a>
+                        <a class="about_us__menu__link">@lang('main.about_us')</a>
                     </li>
                 </ul>
             </div>

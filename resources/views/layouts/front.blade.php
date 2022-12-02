@@ -39,35 +39,35 @@
                     <menu class="sidenav" id="slide-out">
                         <ul class="header__menu">
                             <li>
-                                <a href="{{ route('/') }}" class="header__menu__link">Главная</a>
+                                <a href="{{ route('/') }}" class="header__menu__link">@lang('main.homepage')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('catalog') }}" class="header__menu__link">каталог</a>
+                                <a href="{{ route('catalog') }}" class="header__menu__link">@lang('main.catalog')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('articles') }}" class="header__menu__link">новинки</a>
+                                <a href="{{ route('articles') }}" class="header__menu__link">@lang('main.novelties')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('holidaysets') }}" class="header__menu__link">Праздничные наборы</a>
+                                <a href="{{ route('holidaysets') }}" class="header__menu__link">@lang('main.holiday_sets')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('forcelebrations') }}" class="header__menu__link">Для торжеств </a>
+                                <a href="{{ route('forcelebrations') }}" class="header__menu__link">@lang('main.for_celebrations')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('corporative') }}" class="header__menu__link">Корпоративным клиентам</a>
+                                <a href="{{ route('corporative') }}" class="header__menu__link">@lang('main.to_corporative_clients')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('recipenews') }}" class="header__menu__link">Рецепты</a>
+                                <a href="{{ route('recipenews', ['id' => 0]) }}" class="header__menu__link">@lang('main.recipes')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('about') }}" class="header__menu__link">О нас </a>
+                                <a href="{{ route('about') }}" class="header__menu__link">@lang('main.about_us')</a>
                             </li>
 
                             <li>
@@ -160,37 +160,37 @@
                         <div class="footer__cart__item">
                             <ul class="footer__cart__menu">
                                 <li>
-                                    <a href="{{ route('/') }}" class="footer__link__menu">Главная</a>
+                                    <a href="{{ route('/') }}" class="footer__link__menu">@lang('main.homepage')</a>
                                 </li>
 
                                 <li>
-                                    <a href="#!" class="footer__link__menu">Продукция</a>
+                                    <a href="{{ route('catalog') }}" class="footer__link__menu">@lang('main.catalog')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('articles') }}" class="footer__link__menu">новинки</a>
+                                    <a href="{{ route('articles') }}" class="footer__link__menu">@lang('main.novelties')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('holidaysets') }}" class="footer__link__menu">Праздничные наборы</a>
+                                    <a href="{{ route('holidaysets') }}" class="footer__link__menu">@lang('main.holiday_sets')</a>
                                 </li>
                             </ul>
 
                             <ul class="footer__cart__menu">
                                 <li>
-                                    <a href="{{ route('forcelebrations') }}" class="footer__link__menu">Для торжеств</a>
+                                    <a href="{{ route('forcelebrations') }}" class="footer__link__menu">@lang('main.for_celebrations')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('corporative') }}" class="footer__link__menu">Корпоративным клиентам</a>
+                                    <a href="{{ route('corporative') }}" class="footer__link__menu">@lang('main.to_corporative_clients')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('recipenews') }}" class="footer__link__menu">Рецепты</a>
+                                    <a href="{{ route('recipenews', ['id' => 0]) }}" class="footer__link__menu">@lang('main.recipes')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('about') }}" class="footer__link__menu">О нас</a>
+                                    <a href="{{ route('about') }}" class="footer__link__menu">@lang('main.about_us')</a>
                                 </li>
                             </ul>
                         </div>
@@ -201,7 +201,7 @@
             <div class="footer__bottom">
                 <section class="container">
                     <div class="footer__bottom__list">
-                        <h4 class="footer__bottom__title">«Iman» Все права защищены</h4>
+                        <h4 class="footer__bottom__title">«Iman» @lang('main.all_rights_reserved')</h4>
                         <h4 class="footer__bottom__title">© Copyright 2021 - Web developed by SOS Group</h4>
                     </div>
                 </section>

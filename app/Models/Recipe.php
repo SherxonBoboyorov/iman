@@ -14,4 +14,8 @@ class Recipe extends Model
     protected $fillable = [
         'title_ru', 'title_uz', 'title_en'
     ];
+
+    public function recipenews(){
+        return $this->hasMany(Recipenew::class);
+    }
 }

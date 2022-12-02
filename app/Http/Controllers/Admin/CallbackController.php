@@ -35,12 +35,17 @@ class CallbackController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\Admin\CreateCallback  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCallback $request)
     {
-        //
+        $data = $request->all();
+
+        if (Callback::create($data)){
+            return redirect()->route('callback.index')->with('message', 'Contact created successfully');
+        }
+        return redirect()->route('callback.index')->with('message', 'unable to created Contact');
     }
 
     /**
@@ -62,19 +67,28 @@ class CallbackController extends Controller
      */
     public function edit($id)
     {
-        //
+        $callback = Callback::find($id);
+        return view('admin.callback.edit', compact('callback'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param App\Http\Requests\Admin\UpdateCallback  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCallback $request, $id)
     {
-        //
+        $callback = Callback::find($id);
+
+        $data = $request->all();
+
+        if ($callback->update($data)) {
+            return redirect()->route('callback.index')->with('message', 'changed successfully!!!');
+        }
+
+        return redirect()->route('callback.index')->with('message', 'changed no successfully!!!');
     }
 
     /**
@@ -85,6 +99,11 @@ class CallbackController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $callback = Callback::find($id);
+
+        if ($callback->delete()) {
+            return redirect()->route('callback.index')->with('message', "Contact deleted successfully");
+        }
+        return redirect()->route('callback.index')->with('message', "unable to delete contact");
     }
 }

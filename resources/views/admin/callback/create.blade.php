@@ -8,14 +8,14 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
-                        <h4 class="page-title">Добавить Слайдер</h4>
+                        <h4 class="page-title">Добавить Контакты</h4>
                     </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
 
             <!-- end page title end breadcrumb -->
-            <form action="{{ route('slider.store') }}" enctype="multipart/form-data" method="POST">
+            <form action="{{ route('callback.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="card">
                     <div class="card-body">
@@ -76,7 +76,7 @@
 
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="address_uz">контент [Uzbek]</label>
+                                <label for="address_uz">Адрес: [Uzbek]</label>
                                 <input type="text" id="address_uz" class="form-control" name="address_uz">
                                 @if($errors->has('address_uz'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="address_ru">контент [Russian]</label>
+                                <label for="address_ru">Адрес: [Russian]</label>
                                 <input type="text" id="address_ru" class="form-control" name="address_ru">
                                 @if($errors->has('address_ru'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -104,7 +104,7 @@
                         </div>
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">
-                                <label for="address_en">контент [English]</label>
+                                <label for="address_en">Адрес: [English]</label>
                                 <input type="text" id="address_en" class="form-control" name="address_en">
                                 @if($errors->has('address_en'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -115,10 +115,22 @@
                                     </div>
                                 @endif
                             </div>
+                        </div><br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="map">карты</label>
+                                <input type="text" id="map" class="form-control" name="map">
+                                @if($errors->has('map'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{ $errors->first('map') }}
+                                </div>
+                                @endif
+                            </div>
                         </div>
-
-
-
 
                         <div class="row" style="margin-top: 15px">
                             <div class="col-md-12">

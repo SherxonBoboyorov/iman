@@ -10,10 +10,17 @@ use Illuminate\Http\Request;
 class RecipesController extends Controller
 {
 
-    public function list()
+    public function list($id)
     {
-        $recipes = Recipe::orderBy('created_at', 'DESC')->get();
-        $recipenews = Recipenew::orderBy('created_at', 'DESC')->paginate(12);
+        $recipes = Recipe::orderBy('created_at', 'DESC')->with('recipenews')->get();
+        if($id != 0){
+            $recipenews = Recipenew::where('recipe_id', $id)->orderBy('created_at', 'DESC')->paginate(12);
+        }else{
+            $data = Recipe::orderBy('created_at', 'DESC')->first();
+            $recipenews = Recipenew::where('recipe_id', $data->id)->orderBy('created_at', 'DESC')->paginate(12);
+        }
+
+
         return view('front.recipes.list', compact('recipenews', 'recipes'));
     }
 

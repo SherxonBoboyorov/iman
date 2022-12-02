@@ -67,8 +67,8 @@ Route::group(
         Route::get('articles', [NewController::class, 'list'])->name('articles');
         Route::get('articles/{slug}', [NewController::class, 'show'])->name('article');
         Route::get('about', [AboutController::class, 'about'])->name('about');
-        Route::get('recipenews', [RecipesController::class, 'list'])->name('recipenews');
-        Route::get('recipenews/{slug}', [RecipesController::class, 'show'])->name('recipenew');
+        Route::get('recipenews/{id?}', [RecipesController::class, 'list'])->name('recipenews');
+        Route::get('recipenew/{slug}', [RecipesController::class, 'show'])->name('recipenew');
         Route::get('contact', [ContactController::class, 'index'])->name('contact');
         Route::get('corporative', [CorporativeController::class, 'corporative'])->name('corporative');
         Route::get('holidaysets', [HolidayController::class, 'list'])->name('holidaysets');
@@ -76,7 +76,6 @@ Route::group(
         Route::get('forcelebrations', [CelebrationController::class, 'list'])->name('forcelebrations');
         Route::get('forcelebrations/{slug}', [CelebrationController::class, 'show'])->name('forcelebration');
     });
-
 
 
 

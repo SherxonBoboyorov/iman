@@ -11,9 +11,9 @@ class CreateCallback extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,17 @@ class CreateCallback extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'title_ru' => 'required|max:255',
+            'title_uz' => 'required|max:255',
+            'title_en' => 'required|max:255',
+            'phone_number' => 'required|max:50',
+            'address_ru' => 'required|max:255',
+            'address_uz' => 'required|max:255',
+            'address_en' => 'required|max:255',
+            'map' => 'required'
         ];
     }
 }

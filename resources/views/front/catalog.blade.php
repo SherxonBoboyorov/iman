@@ -7,14 +7,14 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">Каталог</h2>
+                <h2 class="new__title__h2">@lang('main.catalog')</h2>
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('/') }}" class="about_us__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about_us__menu__link">@lang('main.homepage')</a>
                     </li>
 
-                    <li class="about_us__menu__link">Каталог</a>
+                    <li class="about_us__menu__link">@lang('main.catalog')</a>
                     </li>
                 </ul>
             </div>
@@ -44,7 +44,7 @@
                             </p>
                         </div>
 
-                        <a href="{{ route('products') }}" class="catalog__link">В каталог</a>
+                        <a href="{{ route('products', ['id' => $category->id]) }}" class="catalog__link">@lang('main.to_catalog')</a>
                     </div>
                    @endforeach
                 </div>

@@ -44,7 +44,7 @@
                             </p>
                         </div>
 
-                        <a href="{{ route('products', ['category' => $category->id]) }}" class="catalog__link">В каталог</a>
+                        <a href="{{ route('products', ['category' => $category->id]) }}" class="catalog__link">@lang('main.to_catalog')</a>
                     </div>
                   @endforeach
                 </div>
@@ -60,7 +60,7 @@
     <div class="new">
         <section class="container">
             <div class="new__cart">
-                <h2 class="new__title__h2">Новинки</h2>
+                <h2 class="new__title__h2">@lang('main.novelties')</h2>
 
                 <div class="new__list">
                    @foreach ($articles as $article)
@@ -70,14 +70,14 @@
                         </div>
 
                         <div class="new__button">
-                            <a href="{{ route('article', $article->{'slug_' . app()->getLocale()}) }}" class="new__link">Подробнее</a>
+                            <a href="{{ route('article', $article->{'slug_' . app()->getLocale()}) }}" class="new__link">@lang('main.more')</a>
                         </div>
 
                         <h3 class="new__title__h3">{{ $article->{'title_' . app()->getLocale()} }}</h3>
                         <div class="new__text">
                             <p>{!! $article->{'description_' . app()->getLocale()} !!}</p>
                         </div>
-                        <h4 class="new__sum">{{ $article->price }}<span>сум</span></h4>
+                        <h4 class="new__sum">{{ $article->price }}<span>@lang('main.sum')</span></h4>
                     </div>
                    @endforeach
                 </div>
@@ -93,7 +93,7 @@
     <div class="about">
         <section class="container">
             <div class="about__cart">
-                <h2 class="new__title__h2">О нас</h2>
+                <h2 class="new__title__h2">@lang('main.about_us')</h2>
 
                 @foreach ($pages as $page)
                  <div class="about__text">
@@ -103,7 +103,7 @@
                  </div>
                 @endforeach
 
-                <a href="{{ route('about') }}" class="about__link">Подробнее</a>
+                <a href="{{ route('about') }}" class="about__link">@lang('main.more')</a>
             </div>
         </section>
     </div>
@@ -117,7 +117,7 @@
         <section class="container">
             <div class="opinion_of__cart">
 
-                <h2 class="new__title__h2">Мнение наших гурманов</h2>
+                <h2 class="new__title__h2">@lang('main.opinion_of_our_gourmets')</h2>
 
                 <div class="opinion_of__list">
                   @foreach ($opinions as $opinion)
@@ -153,7 +153,7 @@
     <div class="publications">
         <section class="container">
             <div class="publications__cart">
-                <h2 class="new__title__h2">Последние публикации</h2>
+                <h2 class="new__title__h2">@lang('main.latest_publications')</h2>
 
                 <div class="publications__list owl-carousel">
                     @foreach ($publications as $publication)
@@ -183,7 +183,7 @@
                   @endforeach
                 </div>
                 <div class="publications__button">
-                    <a href="https://www.instagram.com/" class="publications__link">Подпишитесь на нас <span><i class="fab fa-instagram"></i></span></a>
+                    <a href="https://www.instagram.com/" class="publications__link">@lang('main.subscribe_to_us')<span><i class="fab fa-instagram"></i></span></a>
                 </div>
             </div>
         </section>

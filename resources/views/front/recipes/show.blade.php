@@ -7,15 +7,15 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">Consectetur adipiscing elit</h2>
+                <h2 class="new__title__h2">{{ $recipenew->{'title_' .app()->getLocale()} }}</h2>
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('recipenews') }}" class="about_us__menu__link">Рецепты</a>
+                        <a href="{{ route('recipenews', ['id' => 0]) }}" class="about_us__menu__link">@lang('main.recipes')</a>
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">Consectetur adipiscing elit</a>
+                        <a class="about_us__menu__link">{{ $recipenew->{'title_' .app()->getLocale()} }}</a>
                     </li>
                 </ul>
             </div>
@@ -23,7 +23,6 @@
     </div>
 
     <!-- about_us end -->
-
 
     <!-- recipes_in start -->
 
