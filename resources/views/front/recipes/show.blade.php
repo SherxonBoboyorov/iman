@@ -11,7 +11,7 @@
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('recipenews', ['id' => 0]) }}" class="about_us__menu__link">@lang('main.recipes')</a>
+                        <a href="{{ route('recipenews', ['id' => 2]) }} " class="about_us__menu__link">@lang('main.recipes')</a>
                     </li>
 
                     <li>

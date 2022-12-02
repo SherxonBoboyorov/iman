@@ -43,7 +43,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('catalog') }}" class="header__menu__link">@lang('main.catalog')</a>
+                                <a href="{{ route('catalog', ['id' => 1]) }}" class="header__menu__link">@lang('main.catalog')</a>
                             </li>
 
                             <li>
@@ -63,7 +63,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('recipenews', ['id' => 0]) }}" class="header__menu__link">@lang('main.recipes')</a>
+                                <a href="{{ route('recipenews', ['id' => 2]) }}" class="header__menu__link">@lang('main.recipes')</a>
                             </li>
 
                             <li>
@@ -164,7 +164,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('catalog') }}" class="footer__link__menu">@lang('main.catalog')</a>
+                                    <a href="{{ route('catalog', ['id' => 1]) }}" class="footer__link__menu">@lang('main.catalog')</a>
                                 </li>
 
                                 <li>
@@ -186,7 +186,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('recipenews', ['id' => 0]) }}" class="footer__link__menu">@lang('main.recipes')</a>
+                                    <a href="{{ route('recipenews', ['id' => 2]) }}" class="footer__link__menu">@lang('main.recipes')</a>
                                 </li>
 
                                 <li>

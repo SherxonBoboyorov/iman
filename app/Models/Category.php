@@ -19,6 +19,10 @@ class Category extends Model
         'description_ru', 'description_uz', 'description_en'
     ];
 
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
     public static function uploadImage($request): ?string
     {
         if ($request->hasFile('image')) {

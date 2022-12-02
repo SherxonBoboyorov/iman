@@ -44,7 +44,7 @@
                             </p>
                         </div>
 
-                        <a href="{{ route('products', ['category' => $category->id]) }}" class="catalog__link">@lang('main.to_catalog')</a>
+                        <a href="{{ route('products', ['id' => $category->id]) }}" class="catalog__link">@lang('main.to_catalog')</a>
                     </div>
                   @endforeach
                 </div>

@@ -34,8 +34,8 @@
 
             <ul class="recipes__filter">
                 @foreach($recipes as $recipe)
-                <li @if(!is_null($recipe) && $recipe->slug)  @endif>
-                    <a href="{{ route('recipenews', ['id' => $recipe->id]) }}" class="recipes__filter__link active">{{ $recipe->{'title_' . app()->getLocale()} }}</a>
+                <li>
+                    <a href="{{ route('recipenews', ['id' => $recipe->id]) }}" class="recipes__filter__link @if ($recipe->id == $id)active @endif">{{ $recipe->{'title_' . app()->getLocale()} }}</a>
                 </li>
                 @endforeach
             </ul>

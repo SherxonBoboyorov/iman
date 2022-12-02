@@ -11,7 +11,7 @@
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('catalog') }}" class="about_us__menu__link">@lang('main.catalog')</a>
+                        <a href="{{ route('catalog', ['id' => 1]) }}" class="about_us__menu__link">@lang('main.catalog')</a>
                     </li>
 
                     <li>
