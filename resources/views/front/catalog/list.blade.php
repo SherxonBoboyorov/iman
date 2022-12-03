@@ -7,7 +7,9 @@
     <div class="about_us">
         <section class="container">
             <div class="about_us__cart">
-                <h2 class="new__title__h2">@lang('main.chocolate_candies')</h2>
+
+                @foreach ($categories as $category)
+                <h2 class="new__title__h2">{{ $category->{'title_' . app()->getLocale()} }}</h2>
 
                 <ul class="about_us__menu">
                     <li>
@@ -15,9 +17,10 @@
                     </li>
 
                     <li>
-                        <a class="about_us__menu__link">@lang('main.chocolate_candies')</a>
+                        <a class="about_us__menu__link">{{ $category->{'title_' . app()->getLocale()} }}</a>
                     </li>
                 </ul>
+                @endforeach
             </div>
         </section>
     </div>

@@ -61,8 +61,8 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
         Route::get('/', [IndexController::class, 'hompage'])->name('/');
-        Route::get('catalog/{id?}', [CatalogController::class, 'catalog'])->name('catalog');
-        Route::get('products', [CatalogInsideController::class, 'list'])->name('products');
+        Route::get('catalog', [CatalogController::class, 'catalog'])->name('catalog');
+        Route::get('products{id?}', [CatalogInsideController::class, 'list'])->name('products');
         Route::get('products/{slug}', [CatalogInsideController::class, 'show'])->name('product');
         Route::get('articles', [NewController::class, 'list'])->name('articles');
         Route::get('articles/{slug}', [NewController::class, 'show'])->name('article');

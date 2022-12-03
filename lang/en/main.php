@@ -13,7 +13,7 @@ return [
     'all_rights_reserved' => 'All rights reserved',
     'to_catalog' => 'To catalog',
     'more' => 'More',
-    'sum' => 'Sum',
+    'sum' => 'sum',
     'opinion_of_our_gourmets' => 'Opinion of our gourmets',
     'latest_publications' => 'Latest publications',
     'subscribe_to_us' => 'Subscribe to us',

@@ -12,7 +12,7 @@
 
                 <ul class="about_us__menu">
                     <li>
-                        <a href="{{ route('products') }}" class="about_us__menu__link">@lang('main.product')</a>
+                        <a href="{{ route('products', [$product->id]) }}" class="about_us__menu__link">@lang('main.product')</a>
                     </li>
 
                     <li>
