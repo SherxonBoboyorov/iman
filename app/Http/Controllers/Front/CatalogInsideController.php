@@ -11,8 +11,7 @@ class CatalogInsideController extends Controller
 {
     public function list($id)
     {
-        // $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-        $categories = Category::all();
+        $categories = Category::where('id', $id)->get();
         $products = Product::where('category_id', $id)->orderBy('created_at', 'DESC')->paginate(12);
 
         return view('front.catalog.list', compact('products', 'categories'));
